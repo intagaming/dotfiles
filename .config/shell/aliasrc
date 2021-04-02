@@ -7,6 +7,8 @@ alias nnn="n"
 # git bare repository alias for managing dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+
+### from LukeSmithxyz/voidrice
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
@@ -24,6 +26,11 @@ alias \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
+# These common commands are just too long! Abbreviate them.
+alias \
+	sdn="sudo shutdown -h now"
+
+### END from LukeSmithxyz/voidrice
 
 ### from mathiasbynens/dotfiles
 
