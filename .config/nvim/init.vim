@@ -3,6 +3,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 colorscheme dracula

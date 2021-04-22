@@ -1,0 +1,19 @@
+#!/bin/sh
+
+choices="dwm\nst\nnvim\nzshrc\nprofile\npolybar\ndunstrc\nbspwmrc\nsxhkdrc\nstartup programs\nthis script"
+
+chosen=$(echo -e "$choices" | dmenu -i -p "choose a config")
+
+case "$chosen" in
+    dwm) $TERMINAL -e $EDITOR ~/.local/share/dwm/config.def.h ;;
+    st) $TERMINAL -e $EDITOR ~/.local/share/st/config.def.h ;;
+    nvim) $TERMINAL -e $EDITOR ~/.config/nvim/init.vim ;;
+    zshrc) $TERMINAL -e $EDITOR ~/.config/zsh/.zshrc ;;
+    profile) $TERMINAL -e $EDITOR ~/.config/shell/profile ;;
+    polybar) $TERMINAL -e $EDITOR ~/.config/polybar/config ;;
+    dunstrc) $TERMINAL -e $EDITOR ~/.config/dunst/dunstrc ;;
+    bspwmrc) $TERMINAL -e $EDITOR ~/.config/bspwm/bspwmrc ;;
+    sxhkdrc) $TERMINAL -e $EDITOR ~/.config/sxhkd/sxhkdrc ;;
+    "startup programs") $TERMINAL -e $EDITOR ~/.local/bin/startup ;;
+    "this script") $TERMINAL -e $EDITOR ~/.local/bin/editconfig ;;
+esac

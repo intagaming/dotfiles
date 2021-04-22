@@ -1,0 +1,23 @@
+#!/bin/sh
+
+### Startup things
+# programs
+nitrogen --restore &
+picom &
+dunst &
+pulseeffects --gapplication-service &
+mailspring -b &
+firefox &
+discord --start-minimized &
+flameshot &
+
+# start systray apps
+nm-applet & # NetworkManager tray
+udiskie --smart-tray -f "$TERMINAL -e nnn" &
+ibus-daemon -drx
+
+# caps to ctrl
+setxkbmap -option caps:ctrl_modifier
+
+# fix for netbeans and such java apps
+wmname compiz
