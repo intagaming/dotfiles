@@ -89,20 +89,20 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+# super + ctrl + {h,j,k,l}
+# 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# super + ctrl + {1-9}
+# 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+# super + ctrl + space
+# 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+# super + ctrl + shift + space
+# 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
@@ -123,9 +123,13 @@ super + {Left,Down,Up,Right}
 # Change volume
 XF86Audio{Raise,Lower}Volume
     pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%;
+super + shift + {plus,minus}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%;
 
 # Mute output
 XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+super + shift + m
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screen brightness
@@ -147,3 +151,7 @@ super + ctrl + c
 # Print screen. To capture fullscreen, hit enter in flameshot.
 Print
     flameshot gui
+
+# Lock screen
+super + ctrl + l
+    slock

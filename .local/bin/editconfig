@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choices="dwm\nst\nnvim\nzshrc\nprofile\npolybar\ndunstrc\nbspwmrc\nsxhkdrc\nstartup programs\nxinitrc\npolybar launcher\nkitty\nthis script"
+choices="dwm\nst\nnvim\nzshrc\nprofile\npolybar\ndunstrc\nbspwmrc\nsxhkdrc\nhotkey\nstartup programs\nxinitrc\npolybar launcher\nkitty\nthis script"
 
 chosen=$(echo -e "$choices" | dmenu -i -p "choose a config")
 
@@ -14,6 +14,7 @@ case "$chosen" in
     dunstrc) $TERMINAL -e $EDITOR ~/.config/dunst/dunstrc ;;
     bspwmrc) $TERMINAL -e $EDITOR ~/.config/bspwm/bspwmrc ;;
     sxhkdrc) $TERMINAL -e $EDITOR ~/.config/sxhkd/sxhkdrc ;;
+    hotkey) $TERMINAL -e $EDITOR ~/.config/sxhkd/sxhkdrc ;;
     xinitrc) $TERMINAL -e $EDITOR ~/.xinitrc ;;
     "polybar launcher") $TERMINAL -e $EDITOR ~/.config/polybar/launch.sh ;;
     kitty) $TERMINAL -e $EDITOR ~/.config/kitty/kitty.conf ;;
