@@ -1,10 +1,8 @@
-export TERMINAL="st"
+export TERMINAL="kitty"
 export EDITOR="nvim"
 
 # export PATH="$PATH:${$(find ${HOME}/.local/bin -type d -printf %p:)%%:}"
 export PATH="$PATH:$HOME/.local/bin"
-# Later maybe use stow for these things
-export PATH="$PATH:$HOME/.local/bin/statusbar"
 
 # FPT University proxy
 # source $HOME/fpt/proxyon.sh

@@ -32,8 +32,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+### Setup monitors
+xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 --primary
+
 ### Startup programs
 startup
 
-### start bspwm
+### Polybar
+~/.config/polybar/launch.sh &
+
+### Start bspwm
 bspwm

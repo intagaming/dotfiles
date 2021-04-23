@@ -1,5 +1,5 @@
 ;==========================================================
-;
+
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
@@ -43,31 +43,49 @@ color15 = ${xrdb:color15}
 ; | |_) | (_| | |  \__ \
 ; |_.__/ \__,_|_|  |___/
 
-[bar/bar]
+[bar/eDP1]
 enable-ipc=true
 height = 45
 
+monitor=eDP1
+
 background = ${colors.background}
-;background = ${colors.primary}
 foreground = ${colors.foreground}
 
-font-0=Cozette:size=12;3
+font-0=FiraCode Nerd Font:size=12;3
 font-1=siji:size=12;3
 font-2=Weather Icons:size=12;3
 font-3=Material Icons:size=12;3
-;font-2=Noto Color Emoji:size=9;3
 
 modules-left = bspwm
 ; Spotify (scripts at github.com/dietervanhoof/polybar-spotify-controls)
 ;modules-center = previous playpause next spotify
-; Mpd
 modules-center = time 
 modules-right = weather cpu memory pulseaudio battery
 
-; scroll-up = bspwn-wsnext
-; scroll-down = bspwn-wsprev
+;tray-position = right
+override-redirect = false
 
-; wm-restack = bspwm
+[bar/HDMI1]
+enable-ipc=true
+height = 45
+
+monitor=HDMI1
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=FiraCode Nerd Font:size=12;3
+font-1=siji:size=12;3
+font-2=Weather Icons:size=12;3
+font-3=Material Icons:size=12;3
+
+modules-left = bspwm
+; Spotify (scripts at github.com/dietervanhoof/polybar-spotify-controls)
+;modules-center = previous playpause next spotify
+modules-center = time 
+modules-right = weather cpu memory pulseaudio battery
+
 tray-position = right
 override-redirect = false
 
@@ -328,20 +346,20 @@ label-discharging = %percentage%%
 format-full = <label-full>
 ;label-charging-underline = ${colors.tertiary}
 ;label-discharging-underline = ${colors.tertiary}
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 
 format-charging-underline = ${colors.foreground}
 format-discharging-underline = ${colors.foreground}
-format-full-prefix = " "
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+format-full-prefix = "  "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 ramp-capacity-0-foreground = ${colors.foreground}
 ramp-capacity-foreground   = ${colors.foreground}
