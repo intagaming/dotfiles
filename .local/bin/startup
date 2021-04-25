@@ -2,11 +2,10 @@
 
 ### Startup things
 # programs
-nitrogen --restore &
+nitrogen --force-setter=xinerama --restore &
 picom &
 dunst &
 pulseeffects --gapplication-service &
-mailspring -b &
 firefox &
 discord --start-minimized &
 flameshot &

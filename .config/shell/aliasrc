@@ -28,7 +28,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
-	sdn="sudo shutdown -h now"
+	sdn="sudo shutdown -p now"
 
 ### END from LukeSmithxyz/voidrice
 

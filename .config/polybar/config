@@ -66,6 +66,8 @@ modules-right = weather cpu memory pulseaudio battery
 ;tray-position = right
 override-redirect = false
 
+wm-restack=bspwm
+
 [bar/HDMI1]
 enable-ipc=true
 height = 45
@@ -88,6 +90,8 @@ modules-right = weather cpu memory pulseaudio battery
 
 tray-position = right
 override-redirect = false
+
+wm-restack=bspwm
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 

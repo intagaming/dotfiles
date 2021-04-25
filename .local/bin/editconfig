@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choices="dwm\nst\nnvim\nzshrc\nprofile\npolybar\ndunstrc\nbspwmrc\nsxhkdrc\nhotkey\nstartup programs\nxinitrc\npolybar launcher\nkitty\nthis script"
+choices="dwm\nst\nnvim\nzshrc\nprofile\npolybar\ndunstrc\nbspwmrc\nsxhkdrc\nhotkey\nstartup programs\nxinitrc\npolybar launcher\nkitty\naliasrc\nthis script"
 
 chosen=$(echo -e "$choices" | dmenu -i -p "choose a config")
 
@@ -10,6 +10,7 @@ case "$chosen" in
     nvim) $TERMINAL -e $EDITOR ~/.config/nvim/init.vim ;;
     zshrc) $TERMINAL -e $EDITOR ~/.config/zsh/.zshrc ;;
     profile) $TERMINAL -e $EDITOR ~/.config/shell/profile ;;
+    aliasrc) $TERMINAL -e $EDITOR ~/.config/shell/aliasrc ;;
     polybar) $TERMINAL -e $EDITOR ~/.config/polybar/config ;;
     dunstrc) $TERMINAL -e $EDITOR ~/.config/dunst/dunstrc ;;
     bspwmrc) $TERMINAL -e $EDITOR ~/.config/bspwm/bspwmrc ;;

@@ -154,4 +154,4 @@ Print
 
 # Lock screen
 super + ctrl + l
-    slock
+    betterlockscreen -l blur

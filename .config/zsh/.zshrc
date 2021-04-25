@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# vim mode
-bindkey -v
-
 # set command history file
 export HISTSIZE=100000
 export SAVEHIST=100000
@@ -19,6 +16,8 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # zsh completion system
 autoload -Uz compinit && compinit -i
 
+# zsh-vi-mode
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # fzf-tab
 source ~/.local/share/fzf-tab/fzf-tab.plugin.zsh
 # zsh-syntax-highlighting
@@ -30,8 +29,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
+# Prevent zsh-vi-mode from overriding Ctrl+R fzf
+zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
 source /usr/share/fzf/completion.zsh
+
 
 # zsh-autosuggestions color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
