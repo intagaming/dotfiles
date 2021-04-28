@@ -10,6 +10,9 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 export HISTFILE="$HOME/.zsh_history"
 
+# nvim as manpager
+export MANPAGER="nvim -c 'set ft=man' -"
+
 # powerlevel10k theme (install with package manager like yay)
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 

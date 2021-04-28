@@ -43,36 +43,9 @@ color15 = ${xrdb:color15}
 ; | |_) | (_| | |  \__ \
 ; |_.__/ \__,_|_|  |___/
 
-[bar/eDP1]
+[bar/bar]
 enable-ipc=true
 height = 45
-
-monitor=eDP1
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-font-0=FiraCode Nerd Font:size=11;3
-font-1=siji:size=11;3
-font-2=Weather Icons:size=11;3
-font-3=Material Icons:size=11;3
-
-modules-left = bspwm
-; Spotify (scripts at github.com/dietervanhoof/polybar-spotify-controls)
-;modules-center = previous playpause next spotify
-modules-center = time 
-modules-right = weather cpu memory pulseaudio battery
-
-;tray-position = right
-override-redirect = false
-
-wm-restack=bspwm
-
-[bar/HDMI1]
-enable-ipc=true
-height = 45
-
-monitor=HDMI1
 
 background = ${colors.background}
 foreground = ${colors.foreground}

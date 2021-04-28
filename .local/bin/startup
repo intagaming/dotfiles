@@ -9,6 +9,7 @@ pulseeffects --gapplication-service &
 firefox &
 discord --start-minimized &
 flameshot &
+thunderbird &
 
 # start systray apps
 nm-applet & # NetworkManager tray
