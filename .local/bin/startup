@@ -16,8 +16,8 @@ nm-applet & # NetworkManager tray
 udiskie --smart-tray -f "$TERMINAL -e nnn" &
 ibus-daemon -drx
 
-# caps to ctrl
-setxkbmap -option caps:ctrl_modifier
+# disable caps lock
+setxkbmap -option caps:none
 
 # fix for netbeans and such java apps
 wmname compiz

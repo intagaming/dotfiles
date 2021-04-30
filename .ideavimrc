@@ -1,4 +1,6 @@
 set number
 set rnu
 set commentary
+set surround
 let mapleader=","
+set ideajoin
