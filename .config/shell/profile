@@ -19,3 +19,4 @@ export QT_IM_MODULE=ibus
 export XIM_PROGRAM=/usr/bin/ibus-daemon
 
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export _JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"

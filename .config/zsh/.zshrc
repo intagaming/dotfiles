@@ -74,3 +74,6 @@ fpath=(~/.config/zsh/completion $fpath)
 
 # powerlevel10k start
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# random color script
+colorscript random

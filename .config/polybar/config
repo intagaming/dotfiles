@@ -46,22 +46,28 @@ color15 = ${xrdb:color15}
 [bar/bar]
 enable-ipc=true
 height = 45
+width = 98%
+offset-x = 1%
+offset-y = 20
+radius = 15
+padding-left = 2
+padding-right = 3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0=FiraCode Nerd Font:size=11;3
+font-0=FiraCode Nerd Font:weight=bold:size=11;3
 font-1=siji:size=11;3
-font-2=Weather Icons:size=11;3
-font-3=Material Icons:size=11;3
+font-2=Weather Icons:weight=bold:size=11;3
+font-3=Material Icons:size=11:weight=bold;3
 
 modules-left = bspwm
 ; Spotify (scripts at github.com/dietervanhoof/polybar-spotify-controls)
 ;modules-center = previous playpause next spotify
-modules-center = time 
-modules-right = weather cpu memory pulseaudio battery
+modules-center = time weather
+modules-right = pulseaudio battery
 
-tray-position = right
+#tray-position = right
 override-redirect = false
 
 wm-restack=bspwm
@@ -89,17 +95,18 @@ index-sort = true
 enable-click = true
 reverse-scroll = false
 
-label-focused = 
-label-focused-foreground = ${colors.color1}
+label-focused = 
+label-focused-foreground = ${colors.color7}
 label-focused-padding = 1
 
-label-occupied = 
-label-occupied-foreground = ${colors.color1}
+label-occupied = 
+label-occupied-foreground = ${colors.color7}
 label-occupied-padding = 1
 
 
-label-empty = 
+label-empty = 
 label-empty-padding = 1
+label-empty-foreground = ${colors.color8}
 
 
 [module/mpd]
@@ -128,23 +135,23 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-padding = 2
-format-foreground = ${colors.color2}
+format-foreground = ${colors.color7}
 label = %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-padding = 2
-format-prefix = " "
-format-foreground = ${colors.color3}
+format-prefix = " "
+format-foreground = ${colors.color7}
 label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
 ; interface = wlan0
-interface = wlp0s20u1
+interface = wlp43s0
 interval = 3.0
 format-connected-margin = 2
 format-connected-foreground = ${colors.color4}
@@ -153,19 +160,20 @@ format-connected-foreground = ${colors.color4}
 format-connected =  <label-connected>
 label-connected = %essid%
 
-format-disconnected = <label-disconnected>
-format-disconnected-margin = 2
-format-disconnected-foreground = ${colors.color5}
-label-disconnected = %ifname% disconnected
+format-disconnected =
+; format-disconnected-margin = 2
+; format-disconnected-foreground = ${colors.color5}
+; label-disconnected = %ifname% disconnected
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = enp44s0
 interval = 3.0
 
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-color1 = ${colors.color1-alt}
 label-connected = %local_ip%
+format-connected-margin = 2
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -176,20 +184,21 @@ format-disconnected =
 [module/time]
 type = internal/date
 interval = 10
-format-padding = 3
+format-padding = 0
 
 time = "%H:%M"
 date = "%A %d %b"
 
-label = %date%, %time%
+label =   %date%, %time%
 label-padding = 2
+format-foreground = ${colors.color15}
 
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume-margin = 2
-format-volume-foreground = ${colors.color6}
+format-volume-foreground = ${colors.color7}
 format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 use-ui-max = false
@@ -305,11 +314,11 @@ click-left = i3-msg '[class="Spotify"] focus'
 [module/battery]
 type = internal/battery
 format-charging-margin = 2
-format-charging-foreground = ${colors.color2}
+format-charging-foreground = ${colors.color3}
 format-discharging-margin = 2
-format-discharging-foreground = ${colors.color1}
+format-discharging-foreground = ${colors.color7}
 format-full-margin = 2
-format-full-foreground = ${colors.color3}
+format-full-foreground = ${colors.color7}
 full-at = 100
 time-format = %H:%M
 battery = BAT0
@@ -350,7 +359,8 @@ type = custom/script
 exec = /home/an7/.local/bin/polybar-forecast
 exec-if = ping openweathermap.org -c 1
 interval = 600
-format-padding = 2
+format-padding = 1
+format-foreground = ${colors.color7}
 #label-font = 3
 label-font = 3
 

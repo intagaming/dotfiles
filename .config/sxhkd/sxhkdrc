@@ -149,7 +149,7 @@ super + ctrl + c
     editconfig
 
 # Print screen. To capture fullscreen, hit enter in flameshot.
-Print
+super + shift + s
     flameshot gui
 
 # Lock screen

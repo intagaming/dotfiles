@@ -16,7 +16,7 @@ alias \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio[ext=m4a]/best --embed-thumbnail" \
+	yta="yt -x -f \"bestaudio[ext=m4a]/best\" --embed-thumbnail" \
 	#ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
