@@ -51,7 +51,7 @@ offset-x = 1%
 offset-y = 20
 radius = 15
 padding-left = 2
-padding-right = 3
+padding-right = 20
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -67,7 +67,9 @@ modules-left = bspwm
 modules-center = time weather
 modules-right = pulseaudio battery
 
-#tray-position = right
+tray-position = right
+tray-detached = true
+tray-offset-x = -20
 override-redirect = false
 
 wm-restack=bspwm
@@ -359,7 +361,7 @@ type = custom/script
 exec = /home/an7/.local/bin/polybar-forecast
 exec-if = ping openweathermap.org -c 1
 interval = 600
-format-padding = 1
+format-padding = 2
 format-foreground = ${colors.color7}
 #label-font = 3
 label-font = 3
