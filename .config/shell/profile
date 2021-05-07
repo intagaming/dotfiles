@@ -1,4 +1,4 @@
-export TERMINAL="kitty"
+#export TERMINAL=""
 export EDITOR="nvim"
 
 # export PATH="$PATH:${$(find ${HOME}/.local/bin -type d -printf %p:)%%:}"
@@ -20,3 +20,6 @@ export XIM_PROGRAM=/usr/bin/ibus-daemon
 
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export _JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+
+# Adding maven bin path
+export PATH=/opt/apache-maven-3.8.1/bin:$PATH

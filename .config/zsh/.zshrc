@@ -14,19 +14,19 @@ export HISTFILE="$HOME/.zsh_history"
 export MANPAGER="nvim -c 'set ft=man' -"
 
 # powerlevel10k theme (install with package manager like yay)
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # zsh completion system
 autoload -Uz compinit && compinit -i
 
 # zsh-vi-mode
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ~/.local/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # fzf-tab
 source ~/.local/share/fzf-tab/fzf-tab.plugin.zsh
 # zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh-autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # aliases
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
@@ -34,7 +34,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # fzf
 # Prevent zsh-vi-mode from overriding Ctrl+R fzf
 zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
-source /usr/share/fzf/completion.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 
 # zsh-autosuggestions color
