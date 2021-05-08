@@ -33,7 +33,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf
 # Prevent zsh-vi-mode from overriding Ctrl+R fzf
-zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
+zvm_after_init_commands+=('[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh')
 source /usr/share/doc/fzf/examples/completion.zsh
 
 
