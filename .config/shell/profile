@@ -8,10 +8,10 @@ export PATH="$PATH:$HOME/.local/bin"
 # source $HOME/fpt/proxyon.sh
 
 # Let JetBrains IDE use their jdk
-export IDEA_JDK=/usr/lib/jvm/jdk-jetbrains
+# export IDEA_JDK=/usr/lib/jvm/jdk-jetbrains
 
 # fix for JetBrains IDEs and such java
-export _JAVA_AWT_WM_NONREPARENTING=1
+# export _JAVA_AWT_WM_NONREPARENTING=1
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -19,7 +19,7 @@ export QT_IM_MODULE=ibus
 export XIM_PROGRAM=/usr/bin/ibus-daemon
 
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-export _JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+# export _JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
 # Adding maven bin path
-export PATH=/opt/apache-maven-3.8.1/bin:$PATH
+# export PATH=/opt/apache-maven-3.8.1/bin:$PATH
