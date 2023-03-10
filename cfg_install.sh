@@ -12,3 +12,6 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+
+config submodule init
+config submodule update
