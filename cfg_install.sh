@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
