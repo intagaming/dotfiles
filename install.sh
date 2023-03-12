@@ -1,4 +1,6 @@
 #!/bin/sh
+git clone --bare https://github.com/intagaming/.dotfiles.git $HOME/.cfg
+
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
@@ -15,3 +17,4 @@ config config status.showUntrackedFiles no
 
 config submodule init
 config submodule update
+
