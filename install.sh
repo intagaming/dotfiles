@@ -1,7 +1,7 @@
 #!/bin/sh
 git clone --bare https://github.com/intagaming/.dotfiles.git $HOME/.cfg
 
-function config {
+config () {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
 mkdir -p .config-backup
