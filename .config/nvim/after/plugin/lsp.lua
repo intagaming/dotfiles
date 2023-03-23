@@ -5,10 +5,9 @@ local lsp = require('lsp-zero').preset({
     suggest_lsp_servers = false,
 })
 
-local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<Tab>'] = vim.NIL,
-        ['<S-Tab>'] = vim.NIL,
+    ['<Tab>'] = vim.NIL,
+    ['<S-Tab>'] = vim.NIL,
 })
 
 lsp.setup_nvim_cmp({
@@ -34,6 +33,17 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+lsp.configure('tsserver', {
+    on_attach = function(client, bufnr)
+        print('hello tsserver')
+    end,
+    init_options = {
+        preferences = {
+            importModuleSpecifierPreference = "non-relative",
+        }
+    },
+})
 
 lsp.setup()
 

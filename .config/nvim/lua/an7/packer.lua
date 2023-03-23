@@ -12,7 +12,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     use {
@@ -56,19 +55,12 @@ return require('packer').startup(function(use)
 
     use 'j-hui/fidget.nvim'
 
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    use 'numToStr/Comment.nvim'
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     use 'nvim-lualine/lualine.nvim'
 
-    use {
-        'lewis6991/gitsigns.nvim',
-        tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-    }
+    use 'lewis6991/gitsigns.nvim'
 
     use 'theprimeagen/harpoon'
 
@@ -87,6 +79,21 @@ return require('packer').startup(function(use)
     use 'tpope/vim-sleuth'
 
     use 'folke/zen-mode.nvim'
+
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+
+    use 'nvim-tree/nvim-web-devicons'
+
+    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
+
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -37,3 +37,7 @@ vim.cmd [[
         au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
     augroup END
 ]]
+
+-- No timeout for <leader>
+vim.opt.timeout = false
+vim.opt.ttimeout = false
