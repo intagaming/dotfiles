@@ -35,9 +35,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.configure('tsserver', {
-    on_attach = function(client, bufnr)
-        print('hello tsserver')
-    end,
     init_options = {
         preferences = {
             importModuleSpecifierPreference = "non-relative",
