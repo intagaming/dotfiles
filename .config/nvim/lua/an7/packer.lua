@@ -95,6 +95,15 @@ return require('packer').startup(function(use)
         requires = "nvim-tree/nvim-web-devicons",
     }
 
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
+
+    use 'NvChad/nvim-colorizer.lua'
+
+    use 'jose-elias-alvarez/typescript.nvim'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
