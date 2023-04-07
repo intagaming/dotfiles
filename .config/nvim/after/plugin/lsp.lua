@@ -34,6 +34,19 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+require("typescript").setup({
+    server = {
+        init_options = {
+            preferences = {
+                importModuleSpecifierPreference = "non-relative",
+            }
+        },
+        on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+    }
+})
+
 lsp.setup()
 
 vim.diagnostic.config({

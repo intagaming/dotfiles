@@ -80,9 +80,19 @@ return require('packer').startup(function(use)
 
     use 'folke/zen-mode.nvim'
 
+    -- use {
+    --     "nvim-telescope/telescope-file-browser.nvim",
+    --     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    -- }
+
     use {
-        "nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
     }
 
     use 'nvim-tree/nvim-web-devicons'
@@ -103,6 +113,8 @@ return require('packer').startup(function(use)
     use 'NvChad/nvim-colorizer.lua'
 
     use 'jose-elias-alvarez/typescript.nvim'
+
+    use 'laytan/cloak.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

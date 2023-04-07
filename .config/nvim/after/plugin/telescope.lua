@@ -8,3 +8,6 @@ vim.keymap.set('n', '<leader>ps', function()
 	if text == "" then return end
 	builtin.grep_string({ search = text });
 end)
+vim.keymap.set('n', '<leader>pls', function()
+	builtin.live_grep()
+end)

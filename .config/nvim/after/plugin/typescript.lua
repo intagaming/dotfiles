@@ -1,16 +1,3 @@
-require("typescript").setup({
-    server = {
-        init_options = {
-            preferences = {
-                importModuleSpecifierPreference = "non-relative",
-            }
-        },
-        on_attach = function(client)
-            client.server_capabilities.documentFormattingProvider = false
-        end,
-    }
-})
-
 vim.keymap.set('n', '<leader>trf', function()
     local current_buf = vim.api.nvim_buf_get_name(0)
 
@@ -27,4 +14,5 @@ vim.keymap.set('n', '<leader>trf', function()
     end)
 end)
 
-vim.keymap.set('n', '<leader>ti', ":TypescriptAddMissingImports")
+vim.keymap.set('n', '<leader>ti', function() require("typescript").actions.addMissingImports() end)
+vim.keymap.set('n', '<leader>tu', function() require("typescript").actions.removeUnused() end)
