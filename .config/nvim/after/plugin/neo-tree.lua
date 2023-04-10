@@ -9,6 +9,9 @@ require("neo-tree").setup({
                 require("neo-tree").close_all()
             end
         },
+    },
+    window = {
+        position = "right",
     }
 })
 

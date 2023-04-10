@@ -1,3 +1,16 @@
+require("typescript").setup({
+    server = {
+        init_options = {
+            preferences = {
+                importModuleSpecifierPreference = "non-relative",
+            }
+        },
+        on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+    }
+})
+
 vim.keymap.set('n', '<leader>trf', function()
     local current_buf = vim.api.nvim_buf_get_name(0)
 

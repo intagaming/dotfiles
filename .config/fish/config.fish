@@ -11,6 +11,13 @@ if status is-interactive
         fish_add_path "~/Library/Python/3.8/bin"
     end
 
-    fish_add_path "~/.cargo/bin"
-    fish_add_path "~/.local/bin"
+    fish_add_path "$HOME/.cargo/bin"
+    fish_add_path "$HOME/.local/bin"
+
+    # Share ssh between WSL and Windows
+    source ~/.agent-bridge.sh
+
+    # Deno
+    set DENO_INSTALL "/home/an7/.deno"
+    fish_add_path "$DENO_INSTALL/bin"
 end

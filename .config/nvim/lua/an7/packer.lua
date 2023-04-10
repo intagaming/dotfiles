@@ -40,7 +40,9 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },         -- Required
+            -- { 'hrsh7th/nvim-cmp' },         -- Required
+            -- Use this until nvim-cmp acts normal with tailwind lsp
+            { 'yioneko/nvim-cmp' },         -- Required
             { 'hrsh7th/cmp-nvim-lsp' },     -- Required
             { 'hrsh7th/cmp-buffer' },       -- Optional
             { 'hrsh7th/cmp-path' },         -- Optional
@@ -115,6 +117,8 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/typescript.nvim'
 
     use 'laytan/cloak.nvim'
+
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
