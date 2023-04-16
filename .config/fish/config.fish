@@ -20,4 +20,8 @@ if status is-interactive
     # Deno
     set DENO_INSTALL "/home/an7/.deno"
     fish_add_path "$DENO_INSTALL/bin"
+
+    set EDITOR "/usr/local/bin/nvim"
+
+    set USBMUXD_SOCKET_ADDRESS 127.0.0.1:27015
 end
