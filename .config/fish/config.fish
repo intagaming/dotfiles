@@ -4,18 +4,8 @@ if status is-interactive
 
     alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-    # Run only for MacOS
-    if test uname = "Darwin"
-        # Run 'code' to open VSCode
-        fish_add_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-        fish_add_path "~/Library/Python/3.8/bin"
-    end
-
     fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.local/bin"
-
-    # Share ssh between WSL and Windows
-    source ~/.agent-bridge.sh
 
     # Deno
     set DENO_INSTALL "/home/an7/.deno"
@@ -23,5 +13,5 @@ if status is-interactive
 
     set EDITOR "/usr/local/bin/nvim"
 
-    set USBMUXD_SOCKET_ADDRESS 127.0.0.1:27015
+    set SSH_AUTH_SOCK ~/.1password/agent.sock
 end
