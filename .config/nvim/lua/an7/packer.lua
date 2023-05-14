@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
 
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v2.x',
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },             -- Required
@@ -136,6 +136,8 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    use "b0o/schemastore.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

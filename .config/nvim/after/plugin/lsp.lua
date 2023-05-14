@@ -5,17 +5,25 @@ local lsp = require('lsp-zero').preset({
     suggest_lsp_servers = false,
 })
 
+
+
+local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<Tab>'] = vim.NIL,
     ['<S-Tab>'] = vim.NIL,
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
 })
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
 })
 
 -- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 vim.opt.signcolumn = 'yes'
 
@@ -47,9 +55,32 @@ require("typescript").setup({
     }
 })
 
+require('lspconfig').tailwindcss.setup({
+    settings = {
+        tailwindCSS = {
+            experimental = {
+                classRegex = {
+                    { "cva\\(([^)]*)\\)",
+                        "[\"'`]([^\"'`]*).*?[\"'`]" },
+                    { "class:list=\\{([^}]*)\\}",
+                        "[\"'`]([^\"'`]*).*?[\"'`]" },
+                },
+            },
+        },
+    },
+})
+
+require('lspconfig').jsonls.setup {
+    settings = {
+        json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+        },
+    },
+}
+
 lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
 })
-

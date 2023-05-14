@@ -1,3 +1,5 @@
+set -gx MOZ_ENABLE_WAYLAND 1
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     starship init fish | source
@@ -12,6 +14,7 @@ if status is-interactive
     fish_add_path "$DENO_INSTALL/bin"
 
     set EDITOR "/usr/local/bin/nvim"
+    set GIT_EDITOR "/usr/local/bin/nvim"
 
     set SSH_AUTH_SOCK ~/.1password/agent.sock
 end
