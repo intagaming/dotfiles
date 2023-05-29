@@ -1,0 +1,3 @@
+[submodule "external_dot_tmux"]
+	path = external_dot_tmux
+	url = https://github.com/gpakosz/.tmux
