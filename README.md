@@ -2,17 +2,10 @@
 
 ## Installation
 
-1. Install `git`
-2. Copy and paste these into the terminal:
+1. Run:
 
-```sh
-cd ~
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-git clone --bare https://github.com/intagaming/.dotfiles.git $HOME/.cfg
-config checkout
-config submodule init
-config submodule update
-
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply intagaming
 ```
 
-3. Here's some packages to install: `fish starship neovim ripgrep`
+2. Here's some packages to install: `fish starship neovim ripgrep`
