@@ -92,7 +92,10 @@ require('mason-lspconfig').setup_handlers({
 
     ["tailwindcss"] = function()
         lspconfig.tailwindcss.setup({
-            on_attach = lsp_attach,
+            on_attach = function(client, bufnr)
+                lsp_attach(client, bufnr)
+                vim.opt.wrap = true
+            end,
             capabilities = lsp_capabilities,
             settings = {
                 tailwindCSS = {
