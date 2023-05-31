@@ -109,7 +109,7 @@ return require('packer').startup(function(use)
         ft = { "markdown" },
     })
 
-    use 'rmagatti/auto-session'
+    use "olimorris/persisted.nvim"
 
     use "b0o/schemastore.nvim"
 
