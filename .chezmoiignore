@@ -1,1 +1,4 @@
 README.md
+{{- if or (ne .chezmoi.os "linux") (not (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+.local/scripts/agent-bridge.sh
+{{- end }}

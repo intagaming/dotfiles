@@ -18,12 +18,10 @@ if status is-interactive
 
     set SSH_AUTH_SOCK ~/.1password/agent.sock
 
-    {{- if eq .chezmoi.os "linux" }}
-    {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    {{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
     # Share ssh between WSL and Windows
     source ~/.local/scripts/agent-bridge.sh
-    {{-   end }}
     {{- end }}
 
     fish_add_path "/usr/local/go/bin"
