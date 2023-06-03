@@ -29,6 +29,8 @@ local tailwind_color = function(entry, vim_item) -- for tailwind css autocomplet
     -- vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
     return vim_item
 end
+
+local luasnip = require("luasnip")
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -42,8 +44,21 @@ cmp.setup({
         { name = 'luasnip', keyword_length = 2 },
     }),
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = vim.NIL,
-        ['<S-Tab>'] = vim.NIL,
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     preselect = 'item',

@@ -77,3 +77,5 @@ require("tokyonight").setup({
     end,
 })
 vim.cmd [[colorscheme tokyonight]]
+
+vim.o.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"

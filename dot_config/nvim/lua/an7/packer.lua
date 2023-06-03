@@ -109,7 +109,7 @@ return require('packer').startup(function(use)
         ft = { "markdown" },
     })
 
-    use "olimorris/persisted.nvim"
+    use 'Shatur/neovim-session-manager'
 
     use "b0o/schemastore.nvim"
 
