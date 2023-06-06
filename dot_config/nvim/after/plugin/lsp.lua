@@ -1,4 +1,4 @@
-local cmp = require('cmp')
+-- cmp setup
 local lsp_zero_formatter = function(entry, item)
     local short_name = {
         nvim_lsp = 'LSP',
@@ -31,11 +31,16 @@ local tailwind_color = function(entry, vim_item) -- for tailwind css autocomplet
 end
 
 local luasnip = require("luasnip")
+local cmp = require('cmp')
 cmp.setup({
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     sources = cmp.config.sources({
         { name = 'path' },
@@ -74,12 +79,14 @@ cmp.setup({
     }
 })
 
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
+-- Border
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
-require('mason').setup()
-require('mason-lspconfig').setup({})
-
+-- LSP setup
 local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = (function(client, bufnr)
@@ -97,39 +104,7 @@ local lsp_attach = (function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-local util = require 'lspconfig.util'
-local astro_path = util.path.join(vim.fn.stdpath 'data', 'mason', 'packages', 'astro-language-server', 'node_modules')
--- local global_ts = util.path.join(astro_path, 'typescript', 'lib')
---
--- local function get_typescript_lib_path(root_dir)
---     local project_root = util.find_node_modules_ancestor(root_dir)
---     return project_root and (path.join(project_root, 'node_modules', 'typescript', 'lib'))
---         or global_ts_server_path
--- end
-local function get_typescript_server_path(root_dir)
-    local project_root = util.find_node_modules_ancestor(root_dir)
-    return project_root and (util.path.join(project_root, 'node_modules', 'typescript', 'lib'))
-        or ''
-end
--- local function get_typescript_server_path(root_dir)
---     local found_ts = ''
---     print("ok")
---     local function check_dir(path)
---         found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
---         print("ok" .. found_ts)
---         if util.path.exists(found_ts) then
---             return path
---         end
---     end
---     if util.search_ancestors(root_dir, check_dir) then
---         return found_ts
---     else
---         -- return global_ts
---         return ''
---     end
--- end
-
-require('mason-lspconfig').setup_handlers({
+local handlers = {
     function(server_name)
         lspconfig[server_name].setup({
             on_attach = lsp_attach,
@@ -226,19 +201,10 @@ require('mason-lspconfig').setup_handlers({
             capabilities = lsp_capabilities,
         }
     end,
+}
 
-    ["astro"] = function()
-        lspconfig.astro.setup({
-            on_attach = lsp_attach,
-            capabilities = lsp_capabilities,
-            on_new_config = function(new_config, new_root_dir)
-                if vim.tbl_get(new_config.init_options, 'typescript') and not new_config.init_options.typescript.tsdk then
-                    new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-                end
-            end,
-        })
-    end,
-})
+require('mason').setup()
+require('mason-lspconfig').setup({ handlers = handlers })
 
 vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({
