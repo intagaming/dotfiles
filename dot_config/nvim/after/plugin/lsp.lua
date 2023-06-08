@@ -79,6 +79,10 @@ cmp.setup({
     }
 })
 
+luasnip.setup({
+    region_check_events = "CursorMoved",
+    delete_check_events = "TextChanged,InsertLeave",
+})
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
