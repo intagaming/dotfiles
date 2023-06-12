@@ -13,8 +13,6 @@ return {
 
     'JoosepAlviste/nvim-ts-context-commentstring',
 
-    'Exafunction/codeium.vim',
-
     'tpope/vim-surround',
 
     'nvim-treesitter/nvim-treesitter-context',
