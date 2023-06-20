@@ -195,6 +195,20 @@ local handlers = {
         })
     end,
 
+    ["astro"] = function()
+        lspconfig.astro.setup {
+            on_attach = lsp_attach,
+            capabilities = lsp_capabilities,
+            settings = {
+                typescript = {
+                    preferences = {
+                        importModuleSpecifier = "non-relative"
+                    }
+                }
+            },
+        }
+    end,
+
     ["eslint"] = function()
         lspconfig.eslint.setup {
             on_attach = function(client, bufnr)
