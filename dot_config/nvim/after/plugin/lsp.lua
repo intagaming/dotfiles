@@ -93,19 +93,85 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
 -- LSP setup
 local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local util = require 'vim.lsp.util'
+local function in_dictionary(val, dict)
+    return dict[val]
+end
+-- https://github.com/neovim/neovim/blob/master/runtime/lua/vim/lsp/buf.lua
+local function range_from_selection(bufnr, mode)
+    local start = vim.fn.getpos('v')
+    local end_ = vim.fn.getpos('.')
+    local start_row = start[2]
+    local start_col = start[3]
+    local end_row = end_[2]
+    local end_col = end_[3]
+
+    if start_row == end_row and end_col < start_col then
+        end_col, start_col = start_col, end_col
+    elseif end_row < start_row then
+        start_row, end_row = end_row, start_row
+        start_col, end_col = end_col, start_col
+    end
+    if mode == 'V' then
+        start_col = 1
+        local lines = vim.api.nvim_buf_get_lines(bufnr, end_row - 1, end_row, true)
+        end_col = #lines[1]
+    end
+    return {
+        ['start'] = { start_row, start_col - 1 },
+        ['end'] = { end_row, end_col - 1 },
+    }
+end
 local lsp_attach = (function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    local makeLspRequester = function(method, params, fallback, callback)
+        callback = callback or nil
+        if in_dictionary(vim.bo[bufnr].filetype, { typescript = true, typescriptreact = true,
+                javascript = true, javascriptreact = true, ["javascript.jsx"] = true,
+                ["typescript.tsx"] = true
+            }) then
+            for _, active_client in pairs(vim.lsp.get_active_clients()) do
+                if active_client.name ~= "astro" and active_client.supports_method(method) then
+                    active_client.request(method, params, callback, bufnr)
+                end
+            end
+        else
+            fallback()
+        end
+    end
+
+    vim.keymap.set('n', 'gd', function()
+        local params = util.make_position_params()
+        makeLspRequester('textDocument/definition', params, vim.lsp.buf.definition)
+    end, opts)
+
+    vim.keymap.set('n', 'K', function()
+        local params = util.make_position_params()
+        makeLspRequester('textDocument/hover', params, vim.lsp.buf.hover)
+    end, opts)
+
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+
+    vim.keymap.set('n', 'gr', function()
+        local params = util.make_position_params()
+        params.context = {
+            includeDeclaration = true,
+        }
+        makeLspRequester('textDocument/references', params, vim.lsp.buf.references)
+    end, opts)
+
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.keymap.set('i', '<C-h>', function()
+        local params = util.make_position_params()
+        makeLspRequester('textDocument/signatureHelp', params, vim.lsp.buf.signature_help)
+    end, opts)
 end)
 
 local handlers = {
@@ -197,7 +263,31 @@ local handlers = {
 
     ["astro"] = function()
         lspconfig.astro.setup {
-            on_attach = lsp_attach,
+            filetypes = { "astro", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
+                "typescript.tsx" },
+            on_attach = function(client, bufnr)
+                lsp_attach(client, bufnr)
+                local old_get_active_clients = vim.lsp.get_active_clients
+                vim.lsp.get_active_clients = function(filter)
+                    local result = old_get_active_clients(filter)
+
+                    local bufnr2 = vim.api.nvim_get_current_buf()
+                    if in_dictionary(vim.bo[bufnr2].filetype, { typescript = true, typescriptreact = true }) then
+                        local found_key = nil
+                        for key, active_client in pairs(result) do
+                            if active_client.name == "astro" then
+                                found_key = key
+                                break
+                            end
+                        end
+                        if found_key ~= nil then
+                            table.remove(result, found_key)
+                        end
+                    end
+                    return result
+                end
+            end,
+
             capabilities = lsp_capabilities,
             settings = {
                 typescript = {
@@ -228,3 +318,4 @@ vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({
     virtual_text = true
 })
+-- vim.lsp.set_log_level("debug")
