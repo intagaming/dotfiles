@@ -84,7 +84,7 @@ luasnip.setup({
     delete_check_events = "TextChanged,InsertLeave",
 })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Border
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
