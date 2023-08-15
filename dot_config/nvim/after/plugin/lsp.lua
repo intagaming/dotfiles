@@ -127,6 +127,7 @@ local lsp_attach = (function(client, bufnr)
 
     local makeLspRequester = function(method, params, fallback, callback)
         callback = callback or nil
+        -- Don't call Astro LSP on non-astro files
         if in_dictionary(vim.bo[bufnr].filetype, { typescript = true, typescriptreact = true,
                 javascript = true, javascriptreact = true, ["javascript.jsx"] = true,
                 ["typescript.tsx"] = true
