@@ -1,0 +1,227 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "workbench.startupEditor": "none",
+  "git.autofetch": true,
+  "cSpell.userWords": [
+    "clsx",
+    "fontawesome",
+    "fortawesome",
+    "frontmatter",
+    "imdb",
+    "Mdast",
+    "protoc",
+    "rehype",
+    "Strapi",
+    "superjson",
+    "tailwindcss",
+    "unist",
+    "Vercel"
+  ],
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.confirmSync": false,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "editor.fontLigatures": false,
+  "editor.fontFamily": "FiraCode Nerd Font Mono, FiraCode NF, monospace",
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.confirmDragAndDrop": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "json.schemas": [
+    {
+      "name": "vscode-expo-manifest",
+      "url": "file:///home/an7/.config/Code/User/globalStorage/bycedric.vscode-expo/manifest-44.0.0.json",
+      "fileMatch": ["app.json", "app.config.json"]
+    }
+  ],
+  "editor.bracketPairColorization.enabled": true,
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "editor.rulers": [80, 120],
+  "editor.linkedEditing": true,
+  "cSpell.enableFiletypes": ["mdx"],
+  "workbench.colorTheme": "Tokyo Night",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "redhat.telemetry.enabled": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "files.associations": {
+    "*.go": "go"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "errorLens.enabled": true,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+  "editor.stickyScroll.enabled": true,
+  "editor.lineNumbers": "relative",
+  "vim.highlightedyank.enable": true,
+  "eslint.workingDirectories": [
+    "apps/nextjs",
+    "apps/expo",
+    "apps/docs",
+    "packages/api"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "liveshare.presence": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "yaml": true,
+    "rust": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.codeActionsOnSave.mode": "problems",
+  "playwright.reuseBrowser": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "gitlens.views.commitDetails.files.layout": "list",
+  "editor.minimap.enabled": false,
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "p", "v"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["eslint.executeAutofix"]
+    },
+    {
+      "before": ["<leader>", "v", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["<C-o>"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<C-i>"],
+      "commands": ["workbench.action.navigateForward"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    }
+  ],
+  "glassit.alpha": 220,
+  "typescript.suggest.completeFunctionCalls": true,
+  "cSpell.language": "en,vi",
+  "javascript.suggest.completeFunctionCalls": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.eol": "\n",
+  "totalTypeScript.hiddenTips": [
+    "in-operator-narrowing",
+    "passing-generics-to-types",
+    "typeof",
+    "omit-utility-type",
+    "parameters-utility-type",
+    "pick-utility-type",
+    "generic-slots-in-functions",
+    "interface-with-generics",
+    "interface-with-multiple-generics",
+    "type-alias-with-generics",
+    "type-alias-with-multiple-generics",
+    "returntype-utility-type",
+    "nonnullable-utility-type",
+    "record-utility-type",
+    "keyof",
+    "as-const",
+    "as-const-on-object",
+    "mapped-type",
+    "type-predicate",
+    "conditional-type",
+    "tuple-type"
+  ],
+  "eslint.lintTask.enable": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["class:list=\\{([^}]*)\\}", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "workbench.list.smoothScrolling": true,
+  "workbench.sideBar.location": "right",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "editor.cursorSurroundingLines": 8,
+  "window.titleBarStyle": "custom"
+}

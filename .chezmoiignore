@@ -3,3 +3,4 @@ README.md
 .local/scripts/agent-bridge.sh
 {{- end }}
 dot_config/fish/fish_variables
+vscodium-sync-settings
