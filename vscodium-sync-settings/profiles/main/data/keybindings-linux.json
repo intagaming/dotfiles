@@ -55,7 +55,7 @@
     "when": "editorFocus"
   },
   {
-    "key": "ctrl+l",
+    "key": "tab",
     "command": "editor.action.inlineSuggest.commit",
     "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
   },

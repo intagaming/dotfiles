@@ -181,10 +181,8 @@
       "after": ["\"", "_", "d", "P"]
     }
   ],
-  "glassit.alpha": 220,
-  "typescript.suggest.completeFunctionCalls": true,
+  "glassit.alpha": 225,
   "cSpell.language": "en,vi",
-  "javascript.suggest.completeFunctionCalls": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

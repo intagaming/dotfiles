@@ -1,6 +1,4 @@
 disabled:
-  - id: Codeium.codeium
-    uuid: acab4f40-b6db-42ec-bcd1-01802cbdd988
   - id: sysoev.language-stylus
     uuid: 93ecc089-f396-47b4-8676-7fa3bc156a2c
   - id: Vue.volar
