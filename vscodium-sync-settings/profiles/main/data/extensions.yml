@@ -1,11 +1,17 @@
 disabled:
+  - id: adpyke.codesnap
+    uuid: 8c1fc960-44b1-45e8-89b5-85f982fdaf27
+  - id: EditorConfig.EditorConfig
+    uuid: f60a60a6-95ba-42d4-b41c-3d24c1b89588
+  - id: Prisma.prisma
+    uuid: 33ce9d6b-41cf-4972-a62b-386f7201981d
+  - id: ritwickdey.LiveServer
+    uuid: b63c44fd-0457-4696-99e9-dbfdf70d77de
   - id: sysoev.language-stylus
     uuid: 93ecc089-f396-47b4-8676-7fa3bc156a2c
   - id: Vue.volar
     uuid: a5223b43-8621-4351-a14e-3d560f85f277
 enabled:
-  - id: adpyke.codesnap
-    uuid: 8c1fc960-44b1-45e8-89b5-85f982fdaf27
   - id: astro-build.astro-vscode
     uuid: 1fbbc8b0-7432-4b7e-8774-3336151da2f3
   - id: bradlc.vscode-tailwindcss
@@ -14,48 +20,32 @@ enabled:
     uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
   - id: eamodio.gitlens
     uuid: 4de763bd-505d-4978-9575-2b7696ecf94e
-  - id: EditorConfig.EditorConfig
-    uuid: f60a60a6-95ba-42d4-b41c-3d24c1b89588
   - id: enkia.tokyo-night
     uuid: 1cac7443-911e-48b9-8341-49f3880c288a
   - id: esbenp.prettier-vscode
     uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
-  - id: figma.figma-vscode-extension
-    uuid: bff510dc-dcac-4daf-925c-299ee91fb135
   - id: formulahendry.auto-rename-tag
     uuid: 6e440e71-8ed9-4f25-bb78-4b13096b8a03
   - id: GitHub.copilot
     uuid: null
-  - id: GitHub.github-vscode-theme
-    uuid: 7328a705-91fc-49e6-8293-da6f112e482d
   - id: GitHub.remotehub
     uuid: fc7d7e85-2e58-4c1c-97a3-2172ed9a77cd
   - id: golang.go
     uuid: d6f6cfea-4b6f-41f4-b571-6ad2ab7918da
   - id: mattpocock.ts-error-translator
     uuid: e78c7d39-3c30-4ef3-a3bd-b5b641cb91eb
-  - id: ms-azuretools.vscode-docker
-    uuid: 0479fc1c-3d67-49f9-b087-fb9069afe48f
   - id: ms-playwright.playwright
     uuid: f53b1d43-eef4-4909-99ca-56b5fa3e108c
-  - id: ms-vscode-remote.remote-containers
-    uuid: 93ce222b-5f6f-49b7-9ab1-a0463c6238df
   - id: ms-vscode-remote.remote-wsl
     uuid: f0c5397b-d357-4197-99f0-cb4202f22818
   - id: ms-vscode.remote-repositories
     uuid: cf5142f0-3701-4992-980c-9895a750addf
-  - id: ms-vsliveshare.vsliveshare
-    uuid: 5a6dc0d5-dc02-4121-8e24-cad33a2ff0af
   - id: otovo-oss.htmx-tags
     uuid: 205bcb8e-69ca-48f0-af97-c3765c8b73fc
   - id: PKief.material-icon-theme
     uuid: 5db78037-f674-459f-a236-db622c427c5b
-  - id: Prisma.prisma
-    uuid: 33ce9d6b-41cf-4972-a62b-386f7201981d
   - id: redhat.vscode-yaml
     uuid: 2061917f-f76a-458a-8da9-f162de22b97e
-  - id: ritwickdey.LiveServer
-    uuid: b63c44fd-0457-4696-99e9-dbfdf70d77de
   - id: rust-lang.rust-analyzer
     uuid: 06574cb4-e5dc-4631-8174-a543a4533621
   - id: s-nlf-fh.glassit
@@ -72,8 +62,6 @@ enabled:
     uuid: 9d8c32ab-354c-4daf-a9bf-20b633734435
   - id: vscodevim.vim
     uuid: d96e79c6-8b25-4be3-8545-0e0ecefcae03
-  - id: Vue.vscode-typescript-vue-plugin
-    uuid: 78d16c76-388b-44e4-8470-6790d6c3d2d1
   - id: wayou.vscode-todo-highlight
     uuid: 97a08c5f-6667-4242-a5c5-045dfb6bd4b9
   - id: yzhang.markdown-all-in-one
