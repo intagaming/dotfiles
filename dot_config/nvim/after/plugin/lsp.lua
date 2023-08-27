@@ -125,31 +125,32 @@ end
 local lsp_attach = (function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    local makeLspRequester = function(method, params, fallback, callback)
-        callback = callback or nil
-        -- Don't call Astro LSP on non-astro files
-        if in_dictionary(vim.bo[bufnr].filetype, { typescript = true, typescriptreact = true,
-                javascript = true, javascriptreact = true, ["javascript.jsx"] = true,
-                ["typescript.tsx"] = true
-            }) then
-            for _, active_client in pairs(vim.lsp.get_active_clients()) do
-                if active_client.name ~= "astro" and active_client.supports_method(method) then
-                    active_client.request(method, params, callback, bufnr)
-                end
-            end
-        else
-            fallback()
-        end
-    end
+    -- local makeLspRequester = function(method, params, fallback, callback)
+    --     callback = callback or nil
+    --     if in_dictionary(vim.bo[bufnr].filetype, { typescript = true, typescriptreact = true,
+    --             javascript = true, javascriptreact = true, ["javascript.jsx"] = true,
+    --             ["typescript.tsx"] = true
+    --         }) then
+    --         for _, active_client in pairs(vim.lsp.get_active_clients()) do
+    --             if active_client.name ~= "astro" and active_client.supports_method(method) then
+    --                 active_client.request(method, params, callback, bufnr)
+    --             end
+    --         end
+    --     else
+    --         fallback()
+    --     end
+    -- end
 
     vim.keymap.set('n', 'gd', function()
-        local params = util.make_position_params()
-        makeLspRequester('textDocument/definition', params, vim.lsp.buf.definition)
+        vim.lsp.buf.definition()
+        -- local params = util.make_position_params()
+        -- makeLspRequester('textDocument/definition', params, vim.lsp.buf.definition)
     end, opts)
 
     vim.keymap.set('n', 'K', function()
-        local params = util.make_position_params()
-        makeLspRequester('textDocument/hover', params, vim.lsp.buf.hover)
+        vim.lsp.buf.hover()
+        -- local params = util.make_position_params()
+        -- makeLspRequester('textDocument/hover', params, vim.lsp.buf.hover)
     end, opts)
 
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -160,18 +161,20 @@ local lsp_attach = (function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
 
     vim.keymap.set('n', 'gr', function()
-        local params = util.make_position_params()
-        params.context = {
-            includeDeclaration = true,
-        }
-        makeLspRequester('textDocument/references', params, vim.lsp.buf.references)
+        vim.lsp.buf.references()
+        -- local params = util.make_position_params()
+        -- params.context = {
+        --     includeDeclaration = true,
+        -- }
+        -- makeLspRequester('textDocument/references', params, vim.lsp.buf.references)
     end, opts)
 
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
     vim.keymap.set('i', '<C-h>', function()
-        local params = util.make_position_params()
-        makeLspRequester('textDocument/signatureHelp', params, vim.lsp.buf.signature_help)
+        vim.lsp.buf.signature_help()
+        -- local params = util.make_position_params()
+        -- makeLspRequester('textDocument/signatureHelp', params, vim.lsp.buf.signature_help)
     end, opts)
 end)
 
@@ -264,29 +267,29 @@ local handlers = {
 
     ["astro"] = function()
         lspconfig.astro.setup {
-            filetypes = { "astro", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-                "typescript.tsx" },
+            -- filetypes = { "astro", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
+            --     "typescript.tsx" },
             on_attach = function(client, bufnr)
                 lsp_attach(client, bufnr)
-                local old_get_active_clients = vim.lsp.get_active_clients
-                vim.lsp.get_active_clients = function(filter)
-                    local result = old_get_active_clients(filter)
-
-                    local bufnr2 = vim.api.nvim_get_current_buf()
-                    if in_dictionary(vim.bo[bufnr2].filetype, { typescript = true, typescriptreact = true }) then
-                        local found_key = nil
-                        for key, active_client in pairs(result) do
-                            if active_client.name == "astro" then
-                                found_key = key
-                                break
-                            end
-                        end
-                        if found_key ~= nil then
-                            table.remove(result, found_key)
-                        end
-                    end
-                    return result
-                end
+                -- local old_get_active_clients = vim.lsp.get_active_clients
+                -- vim.lsp.get_active_clients = function(filter)
+                --     local result = old_get_active_clients(filter)
+                --
+                --     local bufnr2 = vim.api.nvim_get_current_buf()
+                --     if in_dictionary(vim.bo[bufnr2].filetype, { typescript = true, typescriptreact = true }) then
+                --         local found_key = nil
+                --         for key, active_client in pairs(result) do
+                --             if active_client.name == "astro" then
+                --                 found_key = key
+                --                 break
+                --             end
+                --         end
+                --         if found_key ~= nil then
+                --             table.remove(result, found_key)
+                --         end
+                --     end
+                --     return result
+                -- end
             end,
 
             capabilities = lsp_capabilities,
