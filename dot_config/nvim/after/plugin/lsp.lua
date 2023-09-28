@@ -190,7 +190,7 @@ local handlers = {
         lspconfig.tailwindcss.setup({
             on_attach = function(client, bufnr)
                 lsp_attach(client, bufnr)
-                vim.opt.wrap = true
+                -- vim.opt.wrap = true
             end,
             capabilities = lsp_capabilities,
             settings = {

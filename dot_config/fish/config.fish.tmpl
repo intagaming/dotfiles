@@ -28,4 +28,8 @@ if status is-interactive
 
     set GOPATH "$HOME/go"
     fish_add_path "$GOPATH/bin"
+
+    set GTK_IM_MODULE ibus
+    set QT_IM_MODULE ibus
+    set XMODIFIERS @im=ibus
 end
