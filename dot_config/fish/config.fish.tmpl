@@ -1,5 +1,3 @@
-set -gx MOZ_ENABLE_WAYLAND 1
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
     starship init fish | source
@@ -32,4 +30,6 @@ if status is-interactive
     set GTK_IM_MODULE ibus
     set QT_IM_MODULE ibus
     set XMODIFIERS @im=ibus
+
+    set MOZ_USE_XINPUT2 1
 end
