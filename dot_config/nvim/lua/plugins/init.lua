@@ -15,8 +15,6 @@ return {
 
     'tpope/vim-surround',
 
-    'nvim-treesitter/nvim-treesitter-context',
-
     'tpope/vim-sleuth',
 
     'nvim-tree/nvim-web-devicons',
