@@ -193,6 +193,12 @@ local handlers = {
                 -- vim.opt.wrap = true
             end,
             capabilities = lsp_capabilities,
+            init_options = {
+                userLanguages = {
+                    elixir = "phoenix-heex",
+                    heex = "phoenix-heex",
+                },
+            },
             settings = {
                 tailwindCSS = {
                     experimental = {
