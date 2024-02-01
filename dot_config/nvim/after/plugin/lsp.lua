@@ -1,3 +1,5 @@
+if vim.g.vscode then return end
+
 -- cmp setup
 local lsp_zero_formatter = function(entry, item)
     local short_name = {
