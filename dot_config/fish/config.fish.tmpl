@@ -8,7 +8,7 @@ if status is-interactive
     fish_add_path "$HOME/.local/bin"
 
     # Deno
-    set DENO_INSTALL "/home/an7/.deno"
+    set DENO_INSTALL "$HOME/.deno"
     fish_add_path "$DENO_INSTALL/bin"
 
     set EDITOR "/usr/local/bin/nvim"
@@ -34,4 +34,7 @@ if status is-interactive
     set MOZ_USE_XINPUT2 1
 
     source ~/.asdf/asdf.fish
+
+    set FLYCTL_INSTALL "$HOME/.fly"
+    fish_add_path "$FLYCTL_INSTALL/bin"
 end
