@@ -1,5 +1,6 @@
 return {
     'theprimeagen/harpoon',
+    cond = not vim.g.vscode,
     config = {},
     keys = {
         { "<leader>a", function() require("harpoon.mark").add_file() end },

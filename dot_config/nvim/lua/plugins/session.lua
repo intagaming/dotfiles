@@ -1,5 +1,6 @@
 return {
     'Shatur/neovim-session-manager',
+    cond = not vim.g.vscode,
     config = function()
         local config = require('session_manager.config')
         require('session_manager').setup({

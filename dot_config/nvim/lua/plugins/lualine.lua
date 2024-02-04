@@ -1,5 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
+    cond = not vim.g.vscode,
     dependencies = { 'vuki656/package-info.nvim' },
     config = function()
         local function codeium()

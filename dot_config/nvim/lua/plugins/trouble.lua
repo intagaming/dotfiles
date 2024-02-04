@@ -1,5 +1,6 @@
 return {
     "folke/trouble.nvim",
+    cond = not vim.g.vscode,
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         local trouble = require("trouble.providers.telescope")

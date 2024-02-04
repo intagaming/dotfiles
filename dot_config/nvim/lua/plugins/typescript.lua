@@ -1,5 +1,6 @@
 return {
     'jose-elias-alvarez/typescript.nvim',
+    cond = not vim.g.vscode,
     keys = {
         {
             '<leader>trf',

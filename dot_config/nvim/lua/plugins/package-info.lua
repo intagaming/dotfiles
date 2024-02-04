@@ -1,5 +1,6 @@
 return {
     "vuki656/package-info.nvim",
+    cond = not vim.g.vscode,
     dependencies = "MunifTanjim/nui.nvim",
     config = {},
     keys = {
