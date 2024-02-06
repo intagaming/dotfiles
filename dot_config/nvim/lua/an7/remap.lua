@@ -14,16 +14,10 @@ else
     vim.keymap.set("n", "n", "nzzzv")
     vim.keymap.set("n", "N", "Nzzzv")
 
-    -- greatest remap ever
     vim.keymap.set("x", "<leader>p", [["_dP]])
-
-    -- next greatest remap ever : asbjornHaland
-    vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-    vim.keymap.set("n", "<leader>Y", [["+Y]])
 
     vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-    -- This is going to get me cancelled
     vim.keymap.set("i", "<C-c>", "<Esc>")
 
     vim.keymap.set("n", "Q", "<nop>")
@@ -35,5 +29,8 @@ else
 
     vim.keymap.set("n", "<M-z>", "<cmd>:set wrap!<CR>")
 end
+
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
