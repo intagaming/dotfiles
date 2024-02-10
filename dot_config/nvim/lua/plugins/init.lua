@@ -1,5 +1,7 @@
 if vim.g.vscode then
-    return {}
+    return {
+        'tpope/vim-surround',
+    }
 else
     return {
         'neovim/nvim-lspconfig',

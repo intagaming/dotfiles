@@ -1,7 +1,13 @@
 vim.g.mapleader = " "
 
 if vim.g.vscode then
-
+    local vscode = require('vscode-neovim')
+    vim.keymap.set("n", "<leader>f", function()
+        vscode.action("editor.action.formatDocument")
+    end)
+    vim.keymap.set("n", "<leader>vrn", function()
+        vscode.action("editor.action.rename")
+    end)
 else
     vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 
@@ -28,9 +34,9 @@ else
     vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
 
     vim.keymap.set("n", "<M-z>", "<cmd>:set wrap!<CR>")
+
+    vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 end
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
