@@ -37,4 +37,10 @@ if status is-interactive
 
     set FLYCTL_INSTALL "$HOME/.fly"
     fish_add_path "$FLYCTL_INSTALL/bin"
+
+    set LC_ALL "en_US.UTF-8"
+
+    if not string match -q -- "$HOME/bin" $PATH
+      set -gx PATH $PATH "$HOME/bin"
+    end
 end
