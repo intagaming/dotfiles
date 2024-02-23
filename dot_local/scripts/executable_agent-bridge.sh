@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 mkdir -p ~/.1password
 set -x SSH_AUTH_SOCK ~/.1password/agent.sock
 set ALREADY_RUNNING (ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $status)
