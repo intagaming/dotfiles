@@ -446,5 +446,6 @@ set -g @resurrect-processes '"~pnpm dev"'
 
 # tmux-continuum
 set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @continuum-boot 'on'
+# Causes tmux to be broken on NixOS
+# set -g @continuum-boot 'on'
 set -g @continuum-restore 'on'
