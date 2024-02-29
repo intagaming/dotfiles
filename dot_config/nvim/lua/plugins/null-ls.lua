@@ -7,7 +7,8 @@ return {
 
         null_ls.setup({
             sources = {
-                null_ls.builtins.formatting.prettierd
+                null_ls.builtins.formatting.prettierd,
+                null_ls.builtins.formatting.nixpkgs_fmt
             },
             debug = true,
         })
