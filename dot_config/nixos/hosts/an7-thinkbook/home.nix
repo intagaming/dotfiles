@@ -34,9 +34,11 @@
     pkgs.nodejs_21
     pkgs.corepack_21
     pkgs.elixir_1_16
+    pkgs.inotify-tools
     pkgs.xclip
     pkgs.gnumake
-    pkgs.floorp
+    pkgs.firefox
+    pkgs.htop
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
