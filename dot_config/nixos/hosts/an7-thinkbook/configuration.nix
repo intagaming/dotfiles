@@ -2,19 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./main-user.nix
-      inputs.home-manager.nixosModules.default
     ];
-
-  main-user.enable = true;
-  main-user.userName = "an7";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -100,15 +95,35 @@
     isNormalUser = true;
     description = "An Hoang";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    # packages = with pkgs; [
-    # ];
-  };
+    shell = pkgs.fish;
+    packages = with pkgs; [
+      # Programs
+      google-chrome
+      firefox
+      slack
+      skypeforlinux
+      htop
 
-  home-manager = {
-    # extraSpecialArgs = { inherit inputs; };
-    users = {
-      "an7" = import ./home.nix;
-    };
+      # Development
+      git
+      chezmoi
+      starship
+      fzf
+      ripgrep
+      gcc
+      tmux
+      neovim
+      cargo
+      unzip
+      nodejs_21
+      corepack_21
+      elixir_1_16
+      inotify-tools
+      xclip
+      gnumake
+
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ];
   };
 
   # Allow unfree packages
