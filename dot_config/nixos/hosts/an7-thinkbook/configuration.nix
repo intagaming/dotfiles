@@ -103,6 +103,9 @@
       slack
       skypeforlinux
       htop
+      obsidian
+      fprintd
+      usbutils
 
       # Development
       git
@@ -121,6 +124,7 @@
       inotify-tools
       xclip
       gnumake
+      dbeaver
 
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
@@ -170,4 +174,10 @@
   programs._1password-gui.enable = true;
 
   virtualisation.docker.enable = true;
+
+  # Fingerprint
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+  #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 }

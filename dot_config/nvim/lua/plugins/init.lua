@@ -35,5 +35,6 @@ else
 
         "b0o/schemastore.nvim",
 
+        'github/copilot.vim',
     }
 end
