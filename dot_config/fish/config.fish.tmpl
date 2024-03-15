@@ -2,14 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     starship init fish | source
 
-    alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
     fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.local/bin"
-
-    # Deno
-    set DENO_INSTALL "$HOME/.deno"
-    fish_add_path "$DENO_INSTALL/bin"
 
     set EDITOR "/usr/local/bin/nvim"
     set GIT_EDITOR "/usr/local/bin/nvim"
@@ -27,16 +21,20 @@ if status is-interactive
     set GOPATH "$HOME/go"
     fish_add_path "$GOPATH/bin"
 
-    set GTK_IM_MODULE ibus
-    set QT_IM_MODULE ibus
-    set XMODIFIERS @im=ibus
-
-    set MOZ_USE_XINPUT2 1
-
     set FLYCTL_INSTALL "$HOME/.fly"
     fish_add_path "$FLYCTL_INSTALL/bin"
 
     if not string match -q -- "$HOME/bin" $PATH
       set -gx PATH $PATH "$HOME/bin"
     end
+
+    # Firefox X11 touchpad gestures
+    set MOZ_USE_XINPUT2 1
+
+    # ibus
+    set GTK_IM_MODULE ibus
+    set QT_IM_MODULE ibus
+    set XMODIFIERS @im=ibus
+
+    source ~/.asdf/asdf.fish
 end
