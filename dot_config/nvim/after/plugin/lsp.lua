@@ -94,7 +94,12 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
 
 -- LSP setup
 local lspconfig = require('lspconfig')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- Thanks jasonlyu123 @ https://github.com/sveltejs/language-tools/issues/2008#issuecomment-1987497624
+lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+lsp_capabilities.textDocument.completion = require('cmp_nvim_lsp').default_capabilities().textDocument.completion
+
 local util = require 'vim.lsp.util'
 local function in_dictionary(val, dict)
     return dict[val]
