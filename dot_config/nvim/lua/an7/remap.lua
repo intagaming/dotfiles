@@ -8,6 +8,13 @@ if vim.g.vscode then
     vim.keymap.set("n", "<leader>vrn", function()
         vscode.action("editor.action.rename")
     end)
+
+    vim.keymap.set("n", "]d", function()
+        vscode.action("editor.action.marker.next")
+    end)
+    vim.keymap.set("n", "[d", function()
+        vscode.action("editor.action.marker.prev")
+    end)
 else
     vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 
