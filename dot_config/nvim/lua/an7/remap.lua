@@ -18,6 +18,9 @@ if vim.g.vscode then
     vim.keymap.set("i", "<C-h>", function()
         vscode.action("editor.action.triggerParameterHints")
     end)
+    vim.keymap.set('n', 'gr', function()
+        vscode.action("references-view.findReferences")
+    end)
 else
     vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 
