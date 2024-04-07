@@ -224,6 +224,11 @@ local handlers = {
     end,
 
     ["lua_ls"] = function()
+        -- Make the server aware of Neovim runtime files
+        local workspace_library = vim.api.nvim_get_runtime_file("", true)
+        -- Love2D support
+        table.insert(workspace_library, "${3rd}/love2d/library")
+
         lspconfig.lua_ls.setup {
             on_attach = lsp_attach,
             capabilities = lsp_capabilities,
@@ -238,8 +243,7 @@ local handlers = {
                         globals = { 'vim' },
                     },
                     workspace = {
-                        -- Make the server aware of Neovim runtime files
-                        library = vim.api.nvim_get_runtime_file("", true),
+                        library = workspace_library,
                     },
                     -- Do not send telemetry data containing a randomized but unique identifier
                     telemetry = {
@@ -282,31 +286,7 @@ local handlers = {
 
     ["astro"] = function()
         lspconfig.astro.setup {
-            -- filetypes = { "astro", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-            --     "typescript.tsx" },
-            on_attach = function(client, bufnr)
-                lsp_attach(client, bufnr)
-                -- local old_get_active_clients = vim.lsp.get_active_clients
-                -- vim.lsp.get_active_clients = function(filter)
-                --     local result = old_get_active_clients(filter)
-                --
-                --     local bufnr2 = vim.api.nvim_get_current_buf()
-                --     if in_dictionary(vim.bo[bufnr2].filetype, { typescript = true, typescriptreact = true }) then
-                --         local found_key = nil
-                --         for key, active_client in pairs(result) do
-                --             if active_client.name == "astro" then
-                --                 found_key = key
-                --                 break
-                --             end
-                --         end
-                --         if found_key ~= nil then
-                --             table.remove(result, found_key)
-                --         end
-                --     end
-                --     return result
-                -- end
-            end,
-
+            on_attach = lsp_attach,
             capabilities = lsp_capabilities,
             settings = {
                 typescript = {
