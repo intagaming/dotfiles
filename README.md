@@ -19,8 +19,13 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply intagaming
     [`npiperelay.exe`](https://github.com/jstarks/npiperelay/releases)
   - In WSL: `sudo apt install socat`
 
-If WSL doesn't recognize 1Password SSH, run:
+  If WSL doesn't recognize 1Password SSH, run:
+
+  ```bash
+  ps -x | grep EXEC:[n]piperelay | awk '{print $1}' | xargs kill -9
+  ```
+- Link Neovim config from WSL to Windows:
 
 ```bash
-ps -x | grep EXEC:[n]piperelay | awk '{print $1}' | xargs kill -9
+New-Item -ItemType SymbolicLink -Path "C:\Users\{username}\AppData\Local\nvim" -Target "\\wsl$\Ubuntu\home\{username}\.config\nvim"
 ```
