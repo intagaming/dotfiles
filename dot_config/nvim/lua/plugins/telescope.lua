@@ -1,12 +1,11 @@
 return {
     'nvim-telescope/telescope.nvim',
     cond = not vim.g.vscode,
-    tag = '0.1.3',
-    -- or                            , branch = '0.1.x',
+    branch = '0.1.x',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     keys = {
         { '<leader>pf', function()
-            require('telescope.builtin').find_files({ hidden = true })
+            require('telescope.builtin').find_files()
         end },
         { '<leader>ps', function()
             local text = vim.fn.input("Grep > ")
