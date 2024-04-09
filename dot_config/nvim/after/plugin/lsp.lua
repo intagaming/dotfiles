@@ -308,6 +308,25 @@ local handlers = {
             capabilities = lsp_capabilities,
         }
     end,
+
+    ["csharp_ls"] = function()
+        lspconfig.csharp_ls.setup {
+            on_init = function(client)
+                local path = client.workspace_folders[1].name
+
+                -- Configure projects with >= 2 solution files
+                if string.find(path, 'slime-client-game', 1, true) ~= nil then
+                    client.config.settings["csharp"].solution = path .. "/slime-client-game.sln"
+                end
+
+                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+                return true
+            end,
+            on_attach = lsp_attach,
+            capabilities = lsp_capabilities,
+            settings = { csharp = { solution = "" } }
+        }
+    end,
 }
 
 require('mason').setup()
