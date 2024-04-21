@@ -332,6 +332,13 @@ local handlers = {
 require('mason').setup()
 require('mason-lspconfig').setup({ handlers = handlers })
 
+-- Godot LSP on Windows
+lspconfig.gdscript.setup {
+    on_attach = lsp_attach,
+    capabilities = lsp_capabilities,
+    cmd = { 'ncat', 'localhost', '6005' },
+}
+
 vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({
     virtual_text = true
