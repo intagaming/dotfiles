@@ -1,26 +1,25 @@
+local lsp_attach = require "an7/lsp_attach"
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+
 return {
-    'jose-elias-alvarez/typescript.nvim',
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     cond = not vim.g.vscode,
-    keys = {
-        {
-            '<leader>trf',
-            function()
-                local current_buf = vim.api.nvim_buf_get_name(0)
-
-                vim.ui.input({
-                    prompt = "New path: ",
-                    default = current_buf,
-                }, function(text)
-                    if text == nil or text == "" then return end
-
-                    local ok = require("typescript").renameFile(current_buf, text)
-                    if not ok then return end
-
-                    print("Renamed. Remember to :wa to save buffers after renaming!")
-                end)
-            end
+    opts = {
+        init_options = {
+            preferences = {
+                importModuleSpecifierPreference = "non-relative",
+            }
         },
-        { '<leader>ti', function() require("typescript").actions.addMissingImports() end },
-        { '<leader>tu', function() require("typescript").actions.removeUnused() end },
+        on_attach = function(client, bufnr)
+            lsp_attach(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+        capabilities = lsp_capabilities,
     },
+    config = function()
+        vim.keymap.set("n", "<leader>trf", function() vim.cmd [[TSToolsRenameFile]] end)
+        vim.keymap.set("n", "<leader>ti", function() vim.cmd [[TSToolsAddMissingImports]] end)
+        vim.keymap.set("n", "<leader>tu", function() vim.cmd [[TSToolsRemoveUnusedImports]] end)
+    end,
 }

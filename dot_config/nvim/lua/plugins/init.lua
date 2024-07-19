@@ -15,17 +15,11 @@ else
         'hrsh7th/cmp-nvim-lua',
         'L3MON4D3/LuaSnip',
         'rafamadriz/friendly-snippets',
-
         'JoosepAlviste/nvim-ts-context-commentstring',
-
         'tpope/vim-surround',
-
         'tpope/vim-sleuth',
-
         'nvim-tree/nvim-web-devicons',
-
         'windwp/nvim-ts-autotag',
-
         "b0o/schemastore.nvim",
     }
 end
