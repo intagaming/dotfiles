@@ -3,10 +3,6 @@ return {
     cond = not vim.g.vscode,
     dependencies = { 'vuki656/package-info.nvim' },
     config = function()
-        -- local function codeium()
-        --     return "🪄" .. vim.fn['codeium#GetStatusString']()
-        -- end
-
         local package_info = require("package-info")
         local function packageinfo()
             return package_info.get_status()

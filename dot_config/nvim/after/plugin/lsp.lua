@@ -26,9 +26,6 @@ local tailwind_color = function(entry, vim_item) -- for tailwind css autocomplet
             return vim_item
         end
     end
-    -- vim_item.kind = icons[vim_item.kind] and (icons[vim_item.kind] .. vim_item.kind) or vim_item.kind
-    -- or just show the icon
-    -- vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
     return vim_item
 end
 
@@ -99,36 +96,6 @@ local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Thanks jasonlyu123 @ https://github.com/sveltejs/language-tools/issues/2008#issuecomment-1987497624
 lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 lsp_capabilities.textDocument.completion = require('cmp_nvim_lsp').default_capabilities().textDocument.completion
-
-local util = require 'vim.lsp.util'
-local function in_dictionary(val, dict)
-    return dict[val]
-end
--- https://github.com/neovim/neovim/blob/master/runtime/lua/vim/lsp/buf.lua
-local function range_from_selection(bufnr, mode)
-    local start = vim.fn.getpos('v')
-    local end_ = vim.fn.getpos('.')
-    local start_row = start[2]
-    local start_col = start[3]
-    local end_row = end_[2]
-    local end_col = end_[3]
-
-    if start_row == end_row and end_col < start_col then
-        end_col, start_col = start_col, end_col
-    elseif end_row < start_row then
-        start_row, end_row = end_row, start_row
-        start_col, end_col = end_col, start_col
-    end
-    if mode == 'V' then
-        start_col = 1
-        local lines = vim.api.nvim_buf_get_lines(bufnr, end_row - 1, end_row, true)
-        end_col = #lines[1]
-    end
-    return {
-        ['start'] = { start_row, start_col - 1 },
-        ['end'] = { end_row, end_col - 1 },
-    }
-end
 
 local lsp_attach = require "an7/lsp_attach"
 
