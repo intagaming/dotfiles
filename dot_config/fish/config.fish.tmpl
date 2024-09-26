@@ -37,4 +37,8 @@ if status is-interactive
     set XMODIFIERS @im=ibus
 
     source ~/.asdf/asdf.fish
+
+    fish_add_path "/usr/local/zig"
+
+    alias sail="sh $([ -f sail ] && echo sail || echo vendor/bin/sail)"
 end
