@@ -40,5 +40,5 @@ if status is-interactive
 
     fish_add_path "/usr/local/zig"
 
-    alias sail="sh $([ -f sail ] && echo sail || echo vendor/bin/sail)"
+    alias sail="sh ([ -f sail ] && echo sail || echo vendor/bin/sail)"
 end
