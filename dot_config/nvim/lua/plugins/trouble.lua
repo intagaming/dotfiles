@@ -3,48 +3,47 @@ return {
     cond = not vim.g.vscode,
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-        local trouble = require("trouble.providers.telescope")
         local telescope = require("telescope")
+        local open_with_trouble = require("trouble.sources.telescope").open
         telescope.setup {
             defaults = {
                 mappings = {
-                    i = { ["<c-t>"] = trouble.open_with_trouble },
-                    n = { ["<c-t>"] = trouble.open_with_trouble },
+                    i = { ["<c-t>"] = open_with_trouble },
+                    n = { ["<c-t>"] = open_with_trouble },
                 },
             },
         }
     end,
     keys = {
-        { "<leader>xx", "<cmd>TroubleToggle<cr>", silent = true, noremap = true },
         {
-            "<leader>xw",
-            "<cmd>TroubleToggle workspace_diagnostics<cr>",
-            silent = true,
-            noremap = true
+            "<leader>xx",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
         },
         {
-            "<leader>xd",
-            "<cmd>TroubleToggle document_diagnostics<cr>",
-            silent = true,
-            noremap = true
+            "<leader>xX",
+            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+            desc = "Buffer Diagnostics (Trouble)",
         },
         {
-            "<leader>xl",
-            "<cmd>TroubleToggle loclist<cr>",
-            silent = true,
-            noremap = true
+            "<leader>cs",
+            "<cmd>Trouble symbols toggle focus=false<cr>",
+            desc = "Symbols (Trouble)",
         },
         {
-            "<leader>xq",
-            "<cmd>TroubleToggle quickfix<cr>",
-            silent = true,
-            noremap = true
+            "<leader>cl",
+            "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+            desc = "LSP Definitions / references / ... (Trouble)",
         },
         {
-            "gR",
-            "<cmd>TroubleToggle lsp_references<cr>",
-            silent = true,
-            noremap = true
-        }
+            "<leader>xL",
+            "<cmd>Trouble loclist toggle<cr>",
+            desc = "Location List (Trouble)",
+        },
+        {
+            "<leader>xQ",
+            "<cmd>Trouble qflist toggle<cr>",
+            desc = "Quickfix List (Trouble)",
+        },
     },
 }
