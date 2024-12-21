@@ -181,6 +181,22 @@ local handlers = {
         }
     end,
 
+    ["yamlls"] = function()
+        lspconfig.yamlls.setup {
+            on_attach = lsp_attach,
+            capabilities = lsp_capabilities,
+            settings = {
+                yaml = {
+                    schemaStore = {
+                        enable = false,
+                        url = "",
+                    },
+                    schemas = require('schemastore').yaml.schemas(),
+                },
+            },
+        }
+    end,
+
     ["astro"] = function()
         lspconfig.astro.setup {
             on_attach = lsp_attach,
