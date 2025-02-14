@@ -16,4 +16,11 @@ return {
             require('telescope.builtin').live_grep()
         end },
     },
+    opts = {
+        defaults = {
+            path_display = {
+                "smart"
+            },
+        },
+    },
 }
