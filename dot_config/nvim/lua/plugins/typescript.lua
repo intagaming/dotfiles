@@ -6,10 +6,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     cond = not vim.g.vscode,
     opts = {
-        init_options = {
-            preferences = {
+        settings = {
+            tsserver_file_preferences = {
                 importModuleSpecifierPreference = "non-relative",
-            }
+            },
         },
         on_attach = function(client, bufnr)
             lsp_attach(client, bufnr)
@@ -17,7 +17,8 @@ return {
         end,
         capabilities = lsp_capabilities,
     },
-    config = function()
+    config = function(_, opts)
+        require("typescript-tools").setup(opts)
         vim.keymap.set("n", "<leader>trf", function() vim.cmd [[TSToolsRenameFile]] end)
         vim.keymap.set("n", "<leader>ti", function() vim.cmd [[TSToolsAddMissingImports]] end)
         vim.keymap.set("n", "<leader>tu", function() vim.cmd [[TSToolsRemoveUnusedImports]] end)
