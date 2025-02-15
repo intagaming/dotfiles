@@ -42,9 +42,6 @@ vim.cmd [[
 vim.opt.timeout = false
 vim.opt.ttimeout = false
 
--- Theme
--- vim.cmd [[colorscheme tokyonight]]
-
 vim.o.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
 
 vim.g.netrw_banner = 0
