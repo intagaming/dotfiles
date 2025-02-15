@@ -142,7 +142,7 @@ local handlers = {
             on_init = function(client)
                 if client.workspace_folders then
                     local path = client.workspace_folders[1].name
-                    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+                    if path ~= vim.fn.stdpath('config') and (vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc')) then
                         return
                     end
                 end
@@ -157,9 +157,7 @@ local handlers = {
                     workspace = {
                         checkThirdParty = false,
                         library = {
-                            vim.env.VIMRUNTIME,
-                            "${3rd}/love2d/library",
-                            "${3rd}/busted/library",
+                            vim.env.VIMRUNTIME
                             -- Depending on the usage, you might want to add additional paths here.
                             -- "${3rd}/luv/library"
                             -- "${3rd}/busted/library",
