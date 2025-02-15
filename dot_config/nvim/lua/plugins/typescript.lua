@@ -13,7 +13,7 @@ return {
         },
         on_attach = function(client, bufnr)
             lsp_attach(client, bufnr)
-            client.server_capabilities.documentFormattingProvider = false
+            -- client.server_capabilities.documentFormattingProvider = false
         end,
         capabilities = lsp_capabilities,
     },

@@ -17,7 +17,7 @@ else
         'JoosepAlviste/nvim-ts-context-commentstring',
         'tpope/vim-surround',
         'tpope/vim-sleuth',
-        'nvim-tree/nvim-web-devicons',
+        { "nvim-tree/nvim-web-devicons", opts = {} },
         'windwp/nvim-ts-autotag',
         "b0o/schemastore.nvim",
     }
